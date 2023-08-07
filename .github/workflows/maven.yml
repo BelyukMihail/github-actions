@@ -32,7 +32,7 @@ jobs:
           mkdir drivers
           curl -L https://chromedriver.storage.googleapis.com/113.0.5672.63/chromedriver_mac_arm64.zip > drivers/chromedriver
           unzip drivers/chromedriver -d drivers
-      - name: Build with Maven
+#      - name: Build with Maven
       #      run: mvn test-compile
       - name: Run Selenium Tests
         run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver
