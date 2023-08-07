@@ -12,7 +12,7 @@ public class KarasTest extends BaseTest {
     public void goToMainPageTest() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
-        System.out.println("SYSTEM_PROPS: " + System.getProperty("get_url"));
+        System.out.println("SYSTEM_PROPS: " + System.getProperty("url"));
         driver = new RemoteWebDriver(capabilities);
         KarasMainPage karasMainPage = new KarasMainPage(driver);
         driver.quit();
