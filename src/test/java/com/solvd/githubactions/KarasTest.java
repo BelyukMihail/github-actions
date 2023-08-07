@@ -13,7 +13,7 @@ public class KarasTest extends BaseTest {
     public void goToMainPageTest() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
-        driver = new RemoteWebDriver(new URL("https://github.com/BelyukMihail/github-actions.git"), capabilities);
+        driver = new RemoteWebDriver(new URL("https://Mac-1691415195888.local:10.212.26.236"), capabilities);
         KarasMainPage karasMainPage = new KarasMainPage(driver);
         driver.quit();
 
