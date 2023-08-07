@@ -37,7 +37,7 @@ jobs:
       - name: Print URL
         id: get-url
         run: |
-          echo ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}>>$GITHUB_OUTPUT
+          echo "url=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >>$GITHUB_OUTPUT
       - name: Run Selenium Tests
         #        run: mvn test
         run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver
