@@ -34,6 +34,9 @@ jobs:
           unzip drivers/chromedriver.zip -d drivers
       #      - name: Build with Maven
       #      run: mvn test-compile
+      - name: Print URL
+        run: |
+          echo ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
       - name: Run Selenium Tests
         #        run: mvn test
         run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver
