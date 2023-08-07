@@ -35,8 +35,9 @@ jobs:
       #      - name: Build with Maven
       #      run: mvn test-compile
       - name: Print URL
+        id: get-url
         run: |
-          echo ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          echo ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}>>$GITHUB_OUTPUT
       - name: Run Selenium Tests
         #        run: mvn test
         run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver
