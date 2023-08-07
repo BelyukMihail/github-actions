@@ -36,7 +36,7 @@ jobs:
       #      run: mvn test-compile
       - name: Run Selenium Tests
         #        run: mvn test
-        run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver
+        run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver -Dremote_hub=http://localhost:4444/wd/hub
       - uses: actions/upload-artifact@v2
         with:
           name: surefire-reports
