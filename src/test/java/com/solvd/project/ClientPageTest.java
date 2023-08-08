@@ -1,3 +1,5 @@
+package com.solvd.project;
+
 import com.solvd.project.page.ClientPage;
 import com.solvd.project.page.HomePage;
 import com.solvd.project.page.LoginPage;
