@@ -15,8 +15,8 @@ public class BaseTest {
     protected RemoteWebDriver driver;
     protected LoginService loginService;
 
-    @BeforeClass
     @Parameters(value = "browser")
+    @BeforeClass
     public void getChromeDriver(String browser) {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName(browser);
