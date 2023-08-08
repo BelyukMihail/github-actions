@@ -41,6 +41,7 @@ jobs:
 
       - name: Start Selenium Hub
         run: |
+          cd standalone
           java -jar selenium.jar -port 4444
 
       - name: Run Selenium Tests
