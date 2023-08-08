@@ -1,0 +1,50 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "branch-1" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'corretto'
+          cache: maven
+
+      - name: Set up Chromedriver
+        run: |
+          mkdir drivers
+          curl -L https://chromedriver.storage.googleapis.com/113.0.5672.63/chromedriver_mac_arm64.zip > drivers/chromedriver.zip
+          unzip drivers/chromedriver.zip -d drivers
+
+      - name: Download Selenium Standalone
+        run: |
+          curl -L https://selenium-release.storage.googleapis.com/4.0/selenium-server-standalone-4.0.0-alpha-1.jar > selenium.jar
+
+      - name: Start Selenium Hub
+        run: |
+          java -jar selenium.jar -port 4444 > selenium.log &
+
+      - name: Run Selenium Tests
+        run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver -Dselenium_url=http://localhost:4444/wd/hub
+#      - uses: actions/upload-artifact@v2
+#        with:
+#          name: surefire-reports
+#          path: target/surefire-reports
