@@ -41,9 +41,9 @@ jobs:
       - name: Start Selenium Hub
         run: |
           java -jar selenium.jar -port 4444 > selenium.log &
-          mvn test -Dwebdriver.chrome.driver=drivers/chromedriver
-#      - name: Run Selenium Tests
-#        run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver
+
+      - name: Run Selenium Tests
+        run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver
 #      - uses: actions/upload-artifact@v2
 #        with:
 #          name: surefire-reports
