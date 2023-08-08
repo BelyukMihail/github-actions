@@ -17,7 +17,7 @@ on:
 jobs:
   build:
 
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -44,7 +44,7 @@ jobs:
 
       - name: Run Selenium Tests
         run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver -Dselenium_url=http://localhost:4444/wd/hub
-#      - uses: actions/upload-artifact@v2
-#        with:
-#          name: surefire-reports
-#          path: target/surefire-reports
+      - uses: actions/upload-artifact@v2
+        with:
+          name: surefire-reports
+          path: target/surefire-reports
