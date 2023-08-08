@@ -36,12 +36,10 @@ jobs:
 
       - name: Install Selenium
         run: |
-          mkdir standalone
-          curl -L https://selenium-release.storage.googleapis.com/4.1/selenium-server-standalone-4.1.2.jar > standalone/selenium.jar
+          curl -L https://selenium-release.storage.googleapis.com/4.0/selenium-server-standalone-4.0.0-alpha-1.jar > selenium.jar
 
       - name: Start Selenium Hub
         run: |
-          cd standalone
           java -jar selenium.jar -port 4444
 
       - name: Run Selenium Tests
