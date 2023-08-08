@@ -4,7 +4,7 @@ import com.solvd.project.service.LoginService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 import java.net.MalformedURLException;
@@ -15,8 +15,8 @@ public class BaseTest {
     protected RemoteWebDriver driver;
     protected LoginService loginService;
 
-    @Parameters(value = "browser")
-    @BeforeTest
+    @Parameters("browser")
+    @BeforeClass
     public void initializeDriver(String browser) {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName(browser);
