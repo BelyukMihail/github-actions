@@ -14,7 +14,7 @@ public class KarasTest extends BaseTest {
     public void goToMainPageTest() throws MalformedURLException {
         ChromeOptions options = new ChromeOptions();
 
-        driver = new RemoteWebDriver(new URL("http://selenium-hub:4444/wd/hub"), options);
+        driver = new RemoteWebDriver(new URL("http://localhost:4444"), options);
         KarasMainPage karasMainPage = new KarasMainPage(driver);
         driver.quit();
     }
