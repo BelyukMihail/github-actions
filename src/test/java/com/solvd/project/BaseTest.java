@@ -22,7 +22,7 @@ public class BaseTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName(browser);
         try {
-            driver = new RemoteWebDriver(new URL(System.getProperty("selenium_url" + "/wd/hub")), capabilities);
+            driver = new RemoteWebDriver(new URL(System.getProperty("selenium_url")), capabilities);
         } catch (MalformedURLException e) {
             throw new RuntimeException("Couldn't establish connection on provided URL.", e);
         }
