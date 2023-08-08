@@ -5,6 +5,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.net.MalformedURLException;
@@ -17,7 +18,7 @@ public class BaseTest {
 
     @Parameters(value = "browser")
     @BeforeClass
-    public void getChromeDriver(String browser) {
+    public void getChromeDriver(@Optional String browser) {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName(browser);
         try {
