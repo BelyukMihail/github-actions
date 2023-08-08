@@ -52,7 +52,7 @@ jobs:
           echo "${{ steps.get-url.outputs.url }}" > src/test/resources/system.properties
       - name: Run Selenium Tests
         run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver
-      - uses: actions/upload-artifact@v2
-        with:
-          name: surefire-reports
-          path: target/surefire-reports
+#      - uses: actions/upload-artifact@v2
+#        with:
+#          name: surefire-reports
+#          path: target/surefire-reports
