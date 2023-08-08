@@ -39,8 +39,11 @@ jobs:
         run: |
           curl -L https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-macos-aarch64.tar.gz > drivers/geckodriver.tar.gz
           tar -xf drivers/geckodriver.tar.gz
+
+      - name: Show drivers directory
+        run: |
           cd drivers
-          ./geckodriver
+          ls
 
       - name: Download Selenium Standalone
         run: |
