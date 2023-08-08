@@ -17,7 +17,7 @@ public class KarasTest extends BaseTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
 
-            System.out.println("SYSTEM_PROPS: " + System.getenv());
+            System.out.println("SYSTEM_PROPS: " + System.getenv().get("GITHUB_RUN_ID"));
             driver = new RemoteWebDriver(capabilities);
             KarasMainPage karasMainPage = new KarasMainPage(driver);
             driver.quit();
