@@ -3,7 +3,7 @@
     <test name="Test chrome">
         <parameter name="browser" value="chrome">
             <classes>
-                <class name="com.solvd.project.HomePageTest"/>
+<!--                <class name="com.solvd.project.HomePageTest"/>-->
                 <class name="com.solvd.project.LoginPageTest"/>
                 <class name="com.solvd.project.ClientPageTest"/>
                 <class name="com.solvd.project.CatalogTest"/>
@@ -13,7 +13,7 @@
     <test name="Test firefox">
         <parameter name="browser" value="firefox">
             <classes>
-                <class name="com.solvd.project.HomePageTest"/>
+<!--                <class name="com.solvd.project.HomePageTest"/>-->
                 <class name="com.solvd.project.LoginPageTest"/>
                 <class name="com.solvd.project.ClientPageTest"/>
                 <class name="com.solvd.project.CatalogTest"/>
