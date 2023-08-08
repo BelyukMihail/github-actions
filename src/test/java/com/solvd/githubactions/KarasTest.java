@@ -16,19 +16,10 @@ public class KarasTest extends BaseTest {
     public void goToMainPageTest()  {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
-        try (InputStream input = new FileInputStream("src/test/resources/system.properties")) {
-            Properties prop = new Properties();
-            prop.load(input);
-            System.out.println(prop.getProperty("db.password"));
-            System.out.println("SYSTEM_PROPS: " + prop.getProperty("url"));
+
+            System.out.println("SYSTEM_PROPS: " + System.getenv());
             driver = new RemoteWebDriver(capabilities);
             KarasMainPage karasMainPage = new KarasMainPage(driver);
             driver.quit();
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-
-
     }
 }
