@@ -5,7 +5,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.net.MalformedURLException;
@@ -18,10 +17,11 @@ public class BaseTest {
 
     @Parameters(value = "browser")
     @BeforeClass
-    public void getChromeDriver(@Optional String browser) {
+    public void getChromeDriver(String browser) {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName(browser);
         try {
+//            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
             driver = new RemoteWebDriver(new URL(System.getProperty("selenium_url")), capabilities);
         } catch (MalformedURLException e) {
             throw new RuntimeException("Couldn't establish connection on provided URL.", e);
