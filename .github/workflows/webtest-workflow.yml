@@ -17,7 +17,7 @@ on:
 jobs:
   build:
 
-    runs-on: macOS-latest
+    runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -43,7 +43,10 @@ jobs:
           java -jar selenium.jar -port 4444 > selenium.log &
 
       - name: Run Selenium Tests
-        run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver -Dselenium_url=http://localhost:4444/wd/hub
+        run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver |
+          -Dselenium_url=http://localhost:4444/wd/hub |
+          -Dtestng.suite.files=src/test/resources/testng.xml
+
 
       - uses: actions/upload-artifact@v2
         with:
