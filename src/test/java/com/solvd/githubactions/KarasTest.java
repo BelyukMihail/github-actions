@@ -14,7 +14,7 @@ public class KarasTest extends BaseTest {
     public void goToMainPageTest() throws MalformedURLException {
         ChromeOptions options = new ChromeOptions();
 //        options.setCapability("cookieEnabled",true);
-        System.out.println("SYSTEM_PROPS: " + System.getenv());
+        System.out.println("SYSTEM_PROPS: " + System.getenv("GITHUB_OUTPUT"));
         driver = new RemoteWebDriver(new URL("https://github.com/BelyukMihail/github-actions/actions/runs/" + System.getenv().get("GITHUB_RUN_ID")), options);
         KarasMainPage karasMainPage = new KarasMainPage(driver);
         driver.quit();
