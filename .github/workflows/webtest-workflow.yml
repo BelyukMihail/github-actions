@@ -38,12 +38,12 @@ jobs:
         run: |
           curl -L https://selenium-release.storage.googleapis.com/4.0/selenium-server-standalone-4.0.0-alpha-1.jar > selenium.jar
 
-#      - name: Start Selenium Hub
-#        run: |
-#          java -jar selenium.jar -port 4444 > selenium.log &
+      - name: Start Selenium Hub
+        run: |
+          java -jar selenium.jar -port 4444 > selenium.log &
 
       - name: Run Selenium Tests
-        run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver -jar selenium.jar -port 4444
+        run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver -Dselenium_url=http://localhost:4444/wd/hub
 #      - uses: actions/upload-artifact@v2
 #        with:
 #          name: surefire-reports
