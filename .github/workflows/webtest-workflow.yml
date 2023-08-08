@@ -34,6 +34,11 @@ jobs:
           curl -L https://chromedriver.storage.googleapis.com/113.0.5672.63/chromedriver_mac_arm64.zip > drivers/chromedriver.zip
           unzip drivers/chromedriver.zip -d drivers
 
+      - name: Set up Geckodriver
+        run: |
+          curl -L https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-macos-aarch64.tar.gz > drivers/geckodriver.tar.gz
+          tar -xvzf geckodriver.tar.gz -d drivers
+
       - name: Download Selenium Standalone
         run: |
           curl -L https://selenium-release.storage.googleapis.com/4.0/selenium-server-standalone-4.0.0-alpha-1.jar > selenium.jar
@@ -44,8 +49,9 @@ jobs:
 
       - name: Run Selenium Tests
         run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver |
+          -Dwebdriver.gecko.driver=drivers/geckodriver |
           -Dselenium_url=http://localhost:4444/wd/hub |
-          -Dtestng.suite.files=src/test/resources/testng.xml
+          -Dtestng.suite.files=src/test/resources/suite/testng.xml
 
 
       - uses: actions/upload-artifact@v2
