@@ -55,7 +55,7 @@ jobs:
 
       - name: Run Selenium Tests
         run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver -Dwebdriver.gecko.driver=drivers/geckodriver -Dselenium_url=http://localhost:4444/wd/hub
-      #        -Dtestng.suite.files=src/test/resources/suite/testng.xml
+#        -Dtestng.suite.files=src/test/resources/suite/testng.xml
 
       - uses: actions/upload-artifact@v2
         with:
