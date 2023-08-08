@@ -43,7 +43,7 @@ jobs:
           java -jar selenium.jar -port 4444 > selenium.log &
 
       - name: Run Selenium Tests
-        run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver -Dselenium_url=http://localhost:4444/wd/hub
+        run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver -Dselenium_url=http://localhost:4444/wd/hu
 #      - uses: actions/upload-artifact@v2
 #        with:
 #          name: surefire-reports
