@@ -38,6 +38,9 @@ jobs:
         id: get-url
         run: |
           echo "url=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >>$GITHUB_OUTPUT
+      - name: Save URL to properties
+        run: |
+          echo "${{ steps.get-url.outputs.url }}" > src/test/resources/system.properties
       - name: Run Selenium Tests
         #        run: mvn test
         run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver
