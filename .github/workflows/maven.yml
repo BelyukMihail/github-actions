@@ -22,13 +22,7 @@ jobs:
     container:
       image: selenium/hub:4.0.0-beta-2-prerelease-20200923
       ports:
-        - 4444:4444
-
-      container:
-        image: selenium/node-chrome:4.0.0-beta-2-prerelease-20200923
-        env:
-          HUB_HOST: selenium-hub
-          HUB_PORT: 4444
+        - 4444:4444;
 
     steps:
       - uses: actions/checkout@v3
