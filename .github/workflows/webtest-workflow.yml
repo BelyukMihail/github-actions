@@ -29,21 +29,16 @@ jobs:
           distribution: 'corretto'
           cache: maven
 
-      - name: Set up Chromedriver
-        run: |
-          mkdir drivers
-          curl -L https://chromedriver.storage.googleapis.com/113.0.5672.63/chromedriver_mac_arm64.zip > drivers/chromedriver.zip
-          unzip drivers/chromedriver.zip -d drivers
-
-      - name: Set up Geckodriver
-        run: |
-          curl -L https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-macos-aarch64.tar.gz > drivers/geckodriver.tar.gz
-          tar -xzf drivers/geckodriver.tar.gz -C drivers
-
-      - name: Show drivers directory
-        run: |
-          cd drivers
-          ls
+#      - name: Set up Chromedriver
+#        run: |
+#          mkdir drivers
+#          curl -L https://chromedriver.storage.googleapis.com/113.0.5672.63/chromedriver_mac_arm64.zip > drivers/chromedriver.zip
+#          unzip drivers/chromedriver.zip -d drivers
+#
+#      - name: Set up Geckodriver
+#        run: |
+#          curl -L https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-macos-aarch64.tar.gz > drivers/geckodriver.tar.gz
+#          tar -xzf drivers/geckodriver.tar.gz -C drivers
 
       - name: Download Selenium Standalone
         run: |
@@ -56,7 +51,6 @@ jobs:
       - name: Run Selenium Tests
         run: mvn test -Dselenium_url=http://localhost:4444 -Dwebdriver.chrome.driver=drivers/chromedriver
 #        -Dwebdriver.gecko.driver=drivers/geckodriver
-#        -Dtestng.suite.files=src/test/resources/suite/testng.xml
 
       - uses: actions/upload-artifact@v2
         with:
