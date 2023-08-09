@@ -55,7 +55,7 @@ jobs:
           curl http://localhost:4444/status
 
       - name: Run Selenium Tests
-        run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver -Dselenium_url=http://localhost:4444/
+        run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver -Dselenium_url=http://localhost:4444
 #        -Dwebdriver.gecko.driver=drivers/geckodriver
 #        -Dtestng.suite.files=src/test/resources/suite/testng.xml
 
