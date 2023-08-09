@@ -47,11 +47,12 @@ jobs:
 
       - name: Download Selenium Standalone
         run: |
-          curl -L https://selenium-release.storage.googleapis.com/4.0/selenium-server-standalone-4.0.0-alpha-1.jar > selenium.jar
+          curl -L https://selenium-release.storage.googleapis.com/4.0/selenium-server-standalone-4.0.0-alpha-1.jar > drivers/selenium.jar
 
       - name: Start Selenium Hub
         run: |
-          java -jar selenium.jar -port 4444 > selenium.log &
+          cd drivers
+          java -jar selenium.jar -port 4444 > drivers/selenium.log &
 
       - name: Run Selenium Tests
         run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver -Dselenium_url=http://localhost:4444/
