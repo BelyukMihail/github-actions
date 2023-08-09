@@ -47,7 +47,7 @@ jobs:
 
       - name: Download Selenium Standalone
         run: |
-          curl -L https://selenium-release.storage.googleapis.com/4.0/selenium-server-standalone-4.0.0-alpha-1.jar > selenium.jar
+          curl -L https://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar > selenium.jar
 
       - name: Start Selenium Hub
         run: |
