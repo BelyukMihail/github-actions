@@ -39,6 +39,10 @@ jobs:
 #        run: |
 #          curl -L https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-macos-aarch64.tar.gz > drivers/geckodriver.tar.gz
 #          tar -xzf drivers/geckodriver.tar.gz -C drivers
+      - name: Check drivers directory
+        run: |
+          cd drivers
+          ls
 
       - name: Download Selenium Standalone
         run: |
@@ -49,7 +53,8 @@ jobs:
           java -jar selenium.jar -port 4444 > selenium.log &
 
       - name: Run Selenium Tests
-        run: mvn test -Dselenium_url=http://localhost:4444 -Dwebdriver.chrome.driver=drivers/chromedriver
+        run: mvn test -Dselenium_url=http://localhost:4444
+#          -Dwebdriver.chrome.driver=drivers/chromedriver
 #        -Dwebdriver.gecko.driver=drivers/geckodriver
 
       - uses: actions/upload-artifact@v2
