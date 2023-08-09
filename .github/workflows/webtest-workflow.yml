@@ -51,7 +51,7 @@ jobs:
 
       - name: Start Selenium Hub
         run: |
-          java -jar selenium.jar -port localhost:4444 > selenium.log &
+          java -jar selenium.jar -port 4444 > selenium.log &
 
       - name: Run Selenium Tests
         run: mvn test -Dwebdriver.chrome.driver=drivers/chromedriver -Dselenium_url=http://localhost:4444/
